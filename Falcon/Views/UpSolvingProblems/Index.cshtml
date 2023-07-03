@@ -1,0 +1,75 @@
+﻿@model List<UpSolveProblem>
+@{
+	var httpContext = @Context;
+	var filterValue = httpContext.Request.Query["filter"];
+}
+
+<div class="flex-column height100vh font20px" id="home-cards">
+	<div class="center font20px width100  mg-top25 color-grey-dark">
+			problems to upsolve
+	</div>
+
+	<div class="flex-row space-between font20px width100 mg-bottom15 color-grey-dark">
+		<div class="center tab bg-orange" >
+			<a asp-controller="UpSolvingProblems" asp-action="Index" asp-route-filter="leetcode">
+				leetcode
+			</a>
+		</div>
+		<div class="center tab bg-secondry">
+			<a asp-controller="UpSolvingProblems" asp-action="Index" asp-route-filter="codeforces">
+				codeforces
+			</a>
+		</div>
+	</div>
+
+	@foreach(var problem in Model)
+	{
+		<div class="flex-row bg-white raduis10 height75px mg-top15 space-around width100 shadow">
+			<div class="flex-row center color-white">
+				<span class="number-circle center">
+					@problem.Id
+				</span> 
+			</div>
+			<div class="flex-row center">
+				<a href="@problem.ProblemURL">
+					problem link
+				</a> 
+			</div>
+			@if(filterValue == "favourite")
+			{
+				<a class="flex-row center yellow" asp-action="Solve" asp-controller="UpSolvingProblems" asp-route-id="@problem.Id" asp-route-method="favourite">
+					<span class="material-symbols-rounded">
+						star
+					</span>
+				</a>
+			}
+			else if(filterValue == "delay")
+			{
+				<a class="flex-row center blue" asp-action="Solve" asp-controller="UpSolvingProblems" asp-route-id="@problem.Id" asp-route-method="delay">
+					<span class="material-symbols-rounded">
+						history
+					</span>
+				</a>
+			}
+			else
+			{
+				<a class="flex-row center blue" asp-action="Delay" asp-controller="UpSolvingProblems" asp-route-id="@problem.Id">
+					<span class="material-symbols-rounded">
+						history
+					</span>
+				</a>
+				<a class="flex-row center yellow" asp-action="Favourite" asp-controller="UpSolvingProblems" asp-route-id="@problem.Id">
+					<span class="material-symbols-rounded">
+						star
+					</span>
+				</a>
+				<a class="flex-row center danger" asp-action="Solve" asp-controller="UpSolvingProblems" asp-route-id="@problem.Id">
+					<span class="material-symbols-rounded">
+						delete_forever
+					</span>
+				</a>
+			}
+		</div>
+	}
+</div>
+

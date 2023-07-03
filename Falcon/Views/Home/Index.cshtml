@@ -1,0 +1,19 @@
+﻿<div class="flex-column center gap100  font20px" id="home-cards">
+	<div class="space-between">
+		<div class="center font20px mg-top25 color-grey-dark"> today's task</div>
+		<div class="flex-row bg-white raduis10 height75px center width100 shadow mg-top25 bold">
+			@ViewBag.Current
+		</div>
+		<div class="flex-row bg-white raduis10 height75px center width100 shadow mg-top15 color-grey-dark">
+			@ViewBag.Name
+		</div>
+		<div class="flex-row bg-white raduis10 height75px center width100 shadow mg-top15 color-primary">
+			<a href="@ViewBag.URL">
+				contest link
+			</a>
+		</div>
+		<div class="flex-row bg-white raduis10 height75px center width100 shadow mg-top15 color-secondry">
+			@ViewBag.StartTime
+		</div>
+	</div>
+</div>

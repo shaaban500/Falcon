@@ -1,0 +1,13 @@
+﻿@model UpSolveProblem
+
+<div class="flex-column height100vh center gap100 font20px">
+	<div class="space-between">
+		<div class="center font20px color-grey-dark"> add new problem</div>
+		<form method="post" asp-controller="UpSolvingProblems" asp-action="Create" enctype="multipart/form-data">
+			<div class="flex-column center mg-top25">
+				<input type="text" asp-for="@Model.ProblemURL" />
+				<button type="submit" class="font20px">save</button>
+			</div>
+		</form>
+	</div>
+</div>

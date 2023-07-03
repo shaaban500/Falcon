@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Falcon</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+</head>
+<body>
+
+    <div class="center">
+        <main class="center">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="bg-white">
+        <div class="flex-row space-around color-primary font50px mg-top15">
+            <a asp-controller="UpSolvingProblems" asp-action="Create">
+                <div class="flex-row">
+                    <span class="material-symbols-rounded color-secondry">
+                        add_circle
+                    </span>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="Home">
+                <div class="flex-row">
+                    <span class="material-symbols-rounded">
+                        home
+                    </span>
+                </div>
+            </a>
+            <a asp-controller="UpSolvingProblems" asp-action="Index">
+                <div class="flex-row">
+                    <span class="material-symbols-rounded danger">
+                        question_mark
+                    </span>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="UpSolvingProblems" asp-route-filter="delay">
+                <div class="flex-row">
+                    <span class="material-symbols-rounded blue">
+                        history
+                    </span>
+                </div>
+            </a>
+            <a asp-action="Index" asp-controller="UpSolvingProblems" asp-route-filter="favourite">
+                <div class="flex-row">
+                    <span class="material-symbols-rounded yellow">
+                        star
+                    </span>
+                </div>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
