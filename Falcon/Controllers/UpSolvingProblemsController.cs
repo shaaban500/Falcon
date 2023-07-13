@@ -33,7 +33,7 @@ namespace Falcon.Controllers
 			}
             else
             {
-                problems = problems.Where(x => x.IsDelayed != true);
+                problems = problems.Where(x => x.IsDelayed != true && x.IsSolved != true);
             }
 
 			var filteredProblems = await problems.ToListAsync();
